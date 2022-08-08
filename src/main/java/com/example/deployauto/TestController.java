@@ -2,14 +2,21 @@ package com.example.deployauto;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class TestController {
 
     @GetMapping("/")
     public String index() {
 
-        return "첫번째 빌드 입니다";
+        return "원용";
+    }
+
+    @GetMapping("/ward")
+    public String index2() {
+
+        return "주현";
     }
 
 

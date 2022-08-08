@@ -11,7 +11,7 @@ DEPLOY_PATH=/home/ubuntu/action/
 cp $BUILD_JAR $DEPLOY_PATH
 
 echo "> 현재 실행중인 애플리케이션 pid 확인" >> /home/ubuntu/action/deploy.log
-CURRENT_PID=$(pgrep -f $JAR_NAME)
+CURRENT_PID=$(pgrep -f java)
 
 if [ -z $CURRENT_PID ]
 then
