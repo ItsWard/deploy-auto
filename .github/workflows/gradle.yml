@@ -8,24 +8,30 @@ permissions:
   contents: read
   
 env:
-  S3_BUCKET_NAME: be-pair-000
+  S3_BUCKET_NAME: be-pair-26
 
 jobs:
   build:
-
+    # 실행시키는 OS버전을 의미 ubuntu -> Linux 환경에서 진행함을 의미함
     runs-on: ubuntu-latest
 
+    #checkout -> 처음에 깃허브 액션 사용하려면 반드시 진행 해야합니다.
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
       uses: actions/setup-java@v3
       with:
+        #java version을 11로 진행하고, 만약 11버전에서 오류가 나면 temurin 버전에서 진행합니다.
         java-version: '11'
         distribution: 'temurin'
+
+    - name: grant execute permission gradle
+      run: chmod +x ./gradlew
+      shell: bash
+
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
-      with:
-        arguments: build
+      run: ./gradlew clean build
+      shell: bash
     
     # build한 후 프로젝트를 압축합니다.
     - name: Make zip file
