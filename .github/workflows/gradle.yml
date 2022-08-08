@@ -3,10 +3,13 @@ name: Java CI with Gradle
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
+  #push되지않아도, 수동으로 실행할 수 있는 권한
 
 permissions:
   contents: read
-  
+
+#환경 변수 설정
 env:
   S3_BUCKET_NAME: be-pair-26
 
