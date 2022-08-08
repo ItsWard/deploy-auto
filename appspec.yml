@@ -1,0 +1,19 @@
+version: 0.0
+os: linux
+#파일 저장 위치
+files:
+  - source: /
+    destination: /home/ubuntu/action
+    overwrite: yes
+#파일 실행 권한
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+#실행 어떻게 할건지
+hooks:
+  ApplicationStart:
+    - location: scripts/deploy.sh
+      timeout: 60
+      runas: ubuntu
