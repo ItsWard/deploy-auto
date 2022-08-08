@@ -31,5 +31,4 @@ chmod +x $DEPLOY_JAR
 
 echo "> DEPLOY_JAR 배포"    >> /home/ubuntu/action/deploy.log
 sudo nohup java -jar \
-  $DEPLOY_JAR \
-  $DEPLOY_PATH/nohup.out 2>&1 &
+  $DEPLOY_JAR > $DEPLOY_PATH/nohup.out 2>&1 &

@@ -10,13 +10,13 @@ public class TestController {
     @GetMapping("/")
     public String index() {
 
-        return "원용";
+        return "원용2";
     }
 
     @GetMapping("/ward")
     public String index2() {
 
-        return "주현";
+        return "주현2";
     }
 
 
